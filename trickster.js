@@ -15,7 +15,18 @@ const binaryOps = [
   '<<',
   '>>',
   '<',
-  '>',
+  '==',
+  '!=',
+  '&',
+  '^',
+  '|',
+  '&&',
+  '||',
+];
+
+const symmetricBinaryOps = [
+  '*',
+  '+',
   '==',
   '!=',
   '&',
@@ -69,7 +80,7 @@ function findSolutions(input, output, maxLevel) {
       for (const a of iterTerms(level - 1)) {
         for (const b of iterTerms(level - 1)) {
           const term = `(${a})${op}(${b})`;
-          if (isUsable(term)) {
+          if ((!symmetricBinaryOps.includes(op) || a <= b) && isUsable(term)) {
             yield term;
           }
         }
