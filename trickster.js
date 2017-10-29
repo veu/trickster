@@ -32,8 +32,6 @@ const symmetricBinaryOps = [
   '&',
   '^',
   '|',
-  '&&',
-  '||',
 ];
 
 function findSolutions(input, output, maxLevel) {
