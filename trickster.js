@@ -1,12 +1,21 @@
-const unaryOps = [
+function shuffle(a) {
+  const b = [];
+  while (a.length) {
+    const [e] = a.splice(Math.random() * a.length | 0, 1);
+    b.push(e);
+  }
+  return b;
+}
+
+const unaryOps = shuffle([
   '!',
   '~',
   '+',
   '-',
-];
+]);
 
-const binaryOps = [
   '**',
+const binaryOps = shuffle([
   '*',
   '/',
   '%',
@@ -22,9 +31,9 @@ const binaryOps = [
   '|',
   '&&',
   '||',
-];
+]);
 
-const symmetricBinaryOps = [
+const symmetricBinaryOps = shuffle([
   '*',
   '+',
   '==',
@@ -32,10 +41,10 @@ const symmetricBinaryOps = [
   '&',
   '^',
   '|',
-];
+]);
 
 function findSolutions(input, output, maxLevel) {
-  console.log('goal: ', output)
+  console.log('goal: ' + output)
   let best = {distance: input.length, term: ''};
   for (const level of [...Array(maxLevel+1).keys()]) {
     console.log('level', level);
@@ -103,12 +112,12 @@ function findSolutions(input, output, maxLevel) {
   }
 }
 
-const input = [0,1,2,3,4,5,6,7,8];
-const output = input.map(i => '457690681'[i]);
-//const output = input.map(i => '457690681'[i]&3);
-//const output = input.map(i => '457690681'[i]>>2);
-//const output = input.map(i => '457690681'[i]).reverse();
-//const output = input.map(i => '457690681'[i]&3).reverse();
-//const output = input.map(i => '457690681'[i]>>2).reverse();
+const input = [0,1,2,3,4,5,6,7,8,9];
+const output = input.map(i => '4576906810'[i]);
+//const output = input.map(i => '4576906810'[i]&3);
+//const output = input.map(i => '4576906810'[i]>>2);
+//const output = input.map(i => '4576906810'[i]).reverse();
+//const output = input.map(i => '4576906810'[i]&3).reverse();
+//const output = input.map(i => '4576906810'[i]>>2).reverse();
 
 findSolutions(input, output, 6);
