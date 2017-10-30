@@ -14,7 +14,6 @@ const unaryOps = shuffle([
   '-',
 ]);
 
-  '**',
 const binaryOps = shuffle([
   '*',
   '/',
